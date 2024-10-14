@@ -26,9 +26,9 @@ syndrome -> racuna sindrom sa danim paritetom
 fix -> pomocu sindroma pokusava popravit error
 """
 
-from main_b import mainB
-from main_h import mainH
-from main_k import mainK
+from main_e.main_b import mainB
+from main_e.main_h import mainH
+from main_e.main_k import mainK
 
 
 c0 = 0
