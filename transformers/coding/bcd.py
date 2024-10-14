@@ -36,6 +36,8 @@ def decodeBCD(h):
 
     for i in range(0, n, 4):
         part = h[-(i+4):-(i+1)]+h[-(i+1)]
+        if (codeDec(part) > 9):
+            return "Nije validan bcd kod"
         sol = str(codeDec(part)) + sol
         
     return int(sol)

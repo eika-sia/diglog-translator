@@ -48,6 +48,8 @@ def decodeAiken(h):
                 partV += 4 * int(part[1])
             else:
                 partV += int(part[i])
+        if partV > 9:
+            return "Nije validan Aiken kod"
         sol = str(partV) + sol
 
     return int(sol)

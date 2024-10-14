@@ -37,6 +37,8 @@ def decodeXS3(h):
 
     for i in range(0, n, 4):
         part = h[-(i+4):-(i+1)]+h[-(i+1)]
+        if (codeDec(part)-3 > 9):
+            return "Nije validan XS-3 kod"
         sol = str(int(codeDec(part))-3) + sol
 
     return int(sol)
