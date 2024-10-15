@@ -6,21 +6,27 @@ Ovaj projekt napravljen je za predmet diglog (0036568580). Projekt se koristi po
 
 ### Programi su segmentirani na sljedeci nacin:
 
-#### 1. main_e folder
+### 1. root
+
+Folder sadrzi dva programa i dva foldera:
+- main.py -> glavni program i odabir te preusmjeravanje u iduce opcije
+- valid.py -> sadrzi redizajnirani input za sigurno unosenje podataka
+
+#### 2. main_e folder
 
 Folder sadrzi dodatne opcije dialoga izabrane u main.py
 - main_b.py -> odabir opcija za brojevne sustave
 - main_h.py -> odabir opcija za Hammingov kod
 - main_k.py -> odabir opcija za ostale kodove (bcd, xs3, aiken)
 
-#### 2. transformers - numberSystems
+#### 3. transformers - numberSystems
 
 Folder sadrzi programe sortirane po brojevnim sustavima koji kodiraju u i iz binarnog sustava
 - dec.py -> dekadski sustav
 - hex.py -> heksadekadski sustav
 - oct.py -> oktalni sustav
 
-#### 3. transformers - coding
+#### 4. transformers - coding
 
 Folder sadrzi programe sortirane po tipu koda koji se kodiraju u i iz dekadskog (bcd, xs3, aiken) ili binarnog (hamming)
 - aiken.py -> aikenov kod

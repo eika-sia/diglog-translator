@@ -1,6 +1,7 @@
 from transformers.coding.aiken import codeAiken, decodeAiken
 from transformers.coding.bcd import codeBCD, decodeBCD
 from transformers.coding.xs3 import codeXS3, decodeXS3
+from valid import safeInput
 
 
 def mainK():
@@ -23,13 +24,7 @@ def mainK():
 
     v_d = "0123456789"
     v_k = "01 "
-    c0 = 0
-    while c0 == 0:
-        print("Dobrodosli u translator kodova, zelite li prevesti nesto u kod (K) ili prevesti nesto iz koda (D): ")
-        c0 = input()
-        if ((c0 != "K") and (c0 != "D")):
-            c0 = 0
-            print("Nije validan unos molim probati ponovo")
+    c0 = safeInput("Dobrodosli u translator kodova, zelite li prevesti nesto u kod (K) ili prevesti nesto iz koda (D): ", "KD")
 
     if c0 == "K":
         ci = 0
@@ -43,16 +38,7 @@ def mainK():
             if ci == 0:
                 print("Nije validan unos molim probati ponovo")
 
-        v = False
-        while not v:
-            print("Sada vas broj za input: ")
-            l = input()
-            v = True
-            for i in l:
-                if not (i in v_d):
-                    v = False
-            if not v:
-                print("Nije validan unos molim probati ponovo")
+        l = safeInput("Sada vas broj za input: ", v_d)
 
         print(ci["code"](l))
     else:
@@ -66,16 +52,6 @@ def mainK():
             if ci == 0:
                 print("Nije validan unos molim probati ponovo")
 
-        v = False
-        while not v:
-            print(
-                "Sada vas broj za input (binarni input smije sadrzavati proizvoljne razmake): ")
-            l = input()
-            v = True
-            for i in l:
-                if not (i in v_k):
-                    v = False
-            if not v:
-                print("Nije validan unos molim probati ponovo")
+        l = safeInput("Sada vas broj za input (binarni input smije sadrzavati proizvoljne razmake): ", "01 ")
 
         print(ci["decode"](l))

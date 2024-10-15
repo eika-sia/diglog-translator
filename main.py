@@ -29,19 +29,12 @@ fix -> pomocu sindroma pokusava popravit error
 from main_e.main_b import mainB
 from main_e.main_h import mainH
 from main_e.main_k import mainK
+from valid import safeInput
 
 
-c0 = 0
-while c0 == 0:
-    print("Dobrodosli u univerzalni translator, ako zelite koristit translator izmedu brojevnik baza molimo upisite B, za kodove molimo upisite K i za hammingov kod H: ")
-    c0 = input()
-    if ((c0 != "K") and (c0 != "B") and (c0 != "H")):
-        c0 = 0
-        print("Nije validan unos molim probati ponovo")
+c0 = safeInput("Dobrodosli u univerzalni translator, ako zelite koristit translator izmedu brojevnik baza molimo upisite B, za kodove molimo upisite K i za hammingov kod H: ", "BKH")
 
-if c0 == "B":
-    mainB()
-elif c0 == "K":
-    mainK()
-else:
-    mainH()
+match c0:
+    case "B": mainB()
+    case "K": mainK()
+    case "H": mainH()

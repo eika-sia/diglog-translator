@@ -1,6 +1,7 @@
 from transformers.numberSystems.dec import codeDec, decodeDec
 from transformers.numberSystems.hex import codeHex, decodeHex
 from transformers.numberSystems.oct import codeOct, decodeOct
+from valid import safeInput
 
 
 def mainB():
@@ -31,6 +32,7 @@ def mainB():
 
     coders = [coderBin, coderDec, coderHex, coderOct]
 
+    #zbog prirode inputa nije moguce koristiti safeInput
     ci = 0
     while ci == 0:
         print("Dobrodosli u translator baza, za pocetak upisite bazu broja za input (bin, dec, oct, hex): ")
@@ -41,17 +43,9 @@ def mainB():
         if ci == 0:
             print("Nije validan unos molim probati ponovo")
 
-    v = False
-    while not v:
-        print("Sada vas broj za input (za hex koristiti sva velika slova, binarni inputi mogu sadrzavati proizvoljne razmake): ")
-        l = input()
-        v = True
-        for i in l:
-            if not (i in ci["valid"]):
-                v = False
-        if not v:
-            print("Nije validan unos molim probati ponovo")
+    l = safeInput("Sada vas broj za input (za hex koristiti sva velika slova, binarni inputi mogu sadrzavati proizvoljne razmake): ", ci["valid"])
 
+    #ponovo zbog prirode inputa nije moguce koristiti safe input
     co = 0
     while co == 0:
         print("Hvala puno! Sada koja je zeljena baza za output (bin, dec, oct, hex): ")
