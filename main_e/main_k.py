@@ -1,5 +1,7 @@
 from transformers.coding.aiken import codeAiken, decodeAiken
 from transformers.coding.bcd import codeBCD, decodeBCD
+from transformers.coding.gray import checkGray, createGray
+from transformers.coding.partitet import codePartitet
 from transformers.coding.xs3 import codeXS3, decodeXS3
 from valid import safeInput
 
@@ -20,13 +22,27 @@ def mainK():
         "code": codeXS3,
         "decode": decodeXS3
     }
-    coders = [coderAiken, coderBCD, coderXS3]
+    coderGray = {
+        "name": "gray",
+        "code": createGray,
+        "decode": checkGray
+    }
+    coders = [coderAiken, coderBCD, coderXS3, coderGray]
 
     v_d = "0123456789"
-    v_k = "01 "
-    c0 = safeInput("Dobrodosli u translator kodova, zelite li prevesti nesto u kod (K) ili prevesti nesto iz koda (D): ", "KD")
+    c0 = safeInput("Dobrodosli u translator kodova, zelite li prevesti nesto u kod (K), prevesti nesto iz koda (D) ili kalkulator Grayevog koda (G): ", "KDG")
 
-    if c0 == "K":
+    if c0 == "G":
+        c1 = safeInput("Dobrodosli u kalkulator grayevog koda, za stvaranje novog grayevog koda unesite (K), za provjeru unesite (C): ", "KC")
+        
+        if c1 == "K":
+            k = safeInput("Molimo unesite potrebnu duljinu koda", v_d)
+            print(coderGray["code"](k, []))
+        else:
+            h = safeInput("Molimo unesite grayev kod koji treba provjeriti (staviti razmak izmedu svakog clana): ", "01 ")
+            print(coderGray["decode"](h))
+    
+    elif c0 == "K":
         ci = 0
         while ci == 0:
             print(

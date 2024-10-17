@@ -31,7 +31,9 @@ Folder sadrzi programe sortirane po brojevnim sustavima koji kodiraju u i iz bin
 Folder sadrzi programe sortirane po tipu koda koji se kodiraju u i iz dekadskog (bcd, xs3, aiken) ili binarnog (hamming)
 - aiken.py -> aikenov kod
 - bcd.py -> bcd kod
+- gray.py -> grayev kod
 - hamming.py -> hammingov kod
+- partitet.py -> zastita 1D partitetom (nije koristen u main fileovima igdje)
 - xs3.py -> xs3 kod
 
 ### Koristenje
